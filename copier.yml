@@ -1,0 +1,43 @@
+# Configure jinja2 defaults to make syntax highlighters happy
+_templates_suffix: .jinja
+_subdirectory: src
+_min_copier_version: "9"
+
+odoo_version:
+  type: float
+  default: 17.0
+  choices:
+    - 12.0
+    - 13.0
+    - 14.0
+    - 15.0
+    - 16.0
+    - 17.0
+  help: Which Odoo version will the project use?
+
+project_slug:
+  type: str
+  help:
+    It's usually the same than the repository name.
+
+project_name:
+  type: str
+  help:
+    It's supposed to be human-readable.
+
+
+_message_before_copy: |
+  Thanks for generating a project using our template.
+
+  You'll be asked a series of questions whose answers will be used to
+  generate a tailored project for you.
+
+_message_after_copy: |
+  Your project "{{ project_name }}" has been created successfully!
+
+  Next steps:
+
+  1. Add the `repositories/odoo/odoo` submodule
+
+    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/odoo repositories/odoo/odoo
+    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/design-themes repositories/odoo/design-themes

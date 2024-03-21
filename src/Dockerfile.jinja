@@ -1,0 +1,15 @@
+FROM ghcr.io/odoo-it/docker-odoo:{{ odoo_version }}-latest
+
+# Install project requirements
+USER root
+COPY --chown=odoo:odoo ./requirements.txt $RESOURCES/requirements.txt
+RUN pip install -r $RESOURCES/requirements.txt
+USER odoo
+
+# Custom entrypoint to detect addons in repo_org/repo_name hierarchy
+COPY --chown=odoo:odoo --chmod=777 entrypoint.d/* $RESOURCES/entrypoint.d/
+
+# Copy project sources
+COPY --chown=odoo:odoo repositories $SOURCES/repositories
+COPY --chown=odoo:odoo addons $SOURCES/user
+RUN ln -s $SOURCES/repositories/odoo/odoo $SOURCES/odoo && pip-install-odoo

@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+*/__pycache__/*
+*.py[cod]
+
+# Ensure we never commit pgdumps
+*.dump
+*.sql
+*.pg
+*.pg.gpg
+
+# local dev composition
+docker-compose.override*
