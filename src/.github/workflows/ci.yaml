@@ -31,6 +31,7 @@ jobs:
             type=ref,event=tag
             type=ref,event=pr
             type=sha,enable={{is_default_branch}}
+            type=edge,enable={{is_default_branch}}
       -
         name: Push
         uses: docker/build-push-action@v5
