@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+*/__pycache__/*
+*.py[cod]
+/.venv
+
+# Ensure we never commit pgdumps
+*.dump
+*.sql
+*.pg
+*.pg.gpg
