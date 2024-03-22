@@ -1,3 +1,5 @@
+[![ci](https://github.com/odoo-it/docker-odoo-template/actions/workflows/ci.yml/badge.svg)](https://github.com/odoo-it/docker-odoo-template/actions/workflows/ci.yml)
+
 # Docker Odoo Project Template
 
 Template to bootstrap a project using [docker-odoo](https://github.com/odoo-it/docker-odoo).
