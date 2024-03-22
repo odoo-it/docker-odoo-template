@@ -56,12 +56,14 @@ if os.path.isdir(USER_REPOSITORY):
 # or until it finds an odoo addon?
 repo_addons = []
 if os.path.isdir(REPOSITORIES):
-    repo_addons = [
-        os.path.join(REPOSITORIES, subdir, d)
-        for subdir in sorted(os.listdir(REPOSITORIES))
-        for d in sorted(os.listdir(os.path.join(REPOSITORIES, subdir)))
-        if os.path.isdir(os.path.join(REPOSITORIES, subdir, d))
-    ]
+    for subdir in sorted(os.listdir(REPOSITORIES)):
+        subdir_path = os.path.join(REPOSITORIES, subdir)
+        if not os.path.isdir(subdir_path):
+            continue
+        for repo in sorted(os.listdir(subdir_path)):
+            repo_path = os.path.join(subdir_path, repo)
+            if os.path.isdir(repo_path):
+                repo_addons.append(repo_path)
 
 # Repo addons are preprended, in case we want to overwrite odoo modules
 addons = user_addons + repo_addons + addons
