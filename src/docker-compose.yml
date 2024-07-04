@@ -12,7 +12,7 @@ services:
     stdin_open: true
     volumes:
       - ./repositories:/home/odoo/src/repositories:rw,z
-      - ./src:/home/odoo/src/user:rw,z
+      - ./addons:/home/odoo/src/user:rw,z
       - filestore:/home/odoo/data
     environment:
       PGUSER: odoo
