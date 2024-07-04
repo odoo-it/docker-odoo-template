@@ -2,6 +2,8 @@ exclude: |
   (?x)
   # Ignore submodules
   ^repositories/.*|
+  # Ignore entrypoint scripts
+  ^entrypoint.d/.*|
   # We don't want to mess with tool-generated files
   .svg$|/tests/([^/]+/)?cassettes/|^.copier-answers.yml$|^.github/|
   # Library files can have extraneous formatting (even minimized)
