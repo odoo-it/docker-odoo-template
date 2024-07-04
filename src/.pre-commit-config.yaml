@@ -1,0 +1,51 @@
+exclude: |
+  (?x)
+  # Ignore submodules
+  ^repositories/.*|
+  # We don't want to mess with tool-generated files
+  .svg$|/tests/([^/]+/)?cassettes/|^.copier-answers.yml$|^.github/|
+  # Library files can have extraneous formatting (even minimized)
+  /static/(src/)?lib/|
+  # Ignore build and dist directories in addons
+  /build/|/dist/|
+  # Ignore test files in addons
+  /tests/samples/.*|
+  # You don't usually want a bot to modify your legal texts
+  (LICENSE.*|COPYING.*)
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: fix-encoding-pragma
+        args: ["--remove"]
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        args: [--fix, --show-fixes]
+        exclude: __manifest__.py|__init__.py|repositories
+      - id: ruff-format
+        args: [--diff]
+        exclude: __manifest__.py|__init__.py|repositories
+      - id: ruff-format
+        exclude: __manifest__.py|__init__.py|repositories
+
+  - repo: https://github.com/rstcheck/rstcheck
+    rev: v6.2.1
+    hooks:
+    - id: rstcheck
