@@ -15,6 +15,7 @@ services:
       - ./addons:/home/odoo/src/user:rw,z
       - filestore:/home/odoo/data
     environment:
+      PYTHONDONTWRITEBYTECODE: 1
       PGUSER: odoo
       PGHOST: db
       PGDATABASE: odoodb
