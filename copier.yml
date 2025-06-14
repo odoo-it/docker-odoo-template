@@ -2,6 +2,12 @@
 _templates_suffix: .jinja
 _subdirectory: src
 _min_copier_version: "9"
+_exclude:
+  - "{% if _copier_operation == 'update' -%}**/.gitkeep{% endif %}"
+_skip_if_exists:
+  - odoo/*
+  - .gitmodules
+  - docker-compose.override.yml
 
 odoo_version:
   type: float
@@ -37,7 +43,7 @@ _message_after_copy: |
 
   Next steps:
 
-  1. Add the `repositories/odoo/odoo` submodule
+  1. Add the `odoo/odoo` and `odoo/design-themes` submodules
 
-    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/odoo repositories/odoo/odoo
-    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/design-themes repositories/odoo/design-themes
+    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/odoo odoo/odoo
+    $ git submodule add -b {{ odoo_version }} https://github.com/odoo/design-themes odoo/design-themes

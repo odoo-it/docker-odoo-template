@@ -2,5 +2,8 @@
 */__pycache__/*
 *.py[cod]
 
-# Repositories git history
-/repositories/**/*.git
+# Repositories git history and related files
+**/.git
+**/.gitignore
+**/.gitkeep
+**/.gitmodules
