@@ -11,7 +11,7 @@ _skip_if_exists:
 
 odoo_version:
   type: float
-  default: 17.0
+  default: 18.0
   choices:
     - 12.0
     - 13.0
@@ -19,6 +19,7 @@ odoo_version:
     - 15.0
     - 16.0
     - 17.0
+    - 18.0
   help: Which Odoo version will the project use?
 
 project_slug:
