@@ -32,7 +32,7 @@ jobs:
           tags: |
             type=ref,event=tag
             type=ref,event=pr
-            type=sha,enable={{is_default_branch}}
+            type=sha
             type=edge,enable={{is_default_branch}}
       -
         name: Push
