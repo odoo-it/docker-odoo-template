@@ -3,6 +3,13 @@ name: ci
 on:
   pull_request:
   push:
+    # Generated projects use different default branch names
+    branches:
+      - main
+      - master
+      - "[0-9]*.0"
+    tags:
+      - "*"
 
 jobs:
   build:
